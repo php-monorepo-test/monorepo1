@@ -1,0 +1,15 @@
+{
+    "name": "example/monorepo1",
+    "require": {
+        "psr/container": "^2.0.1"
+    },
+    "require-dev": {
+        "phpspec/prophecy": "^1.14.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Example\\Monorepo1\\NS\\SubPackage3\\": "src/"
+        }
+    }
+}

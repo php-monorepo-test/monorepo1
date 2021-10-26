@@ -1,0 +1,15 @@
+{
+    "name": "example/monorepo1",
+    "require": {
+        "psr/log": "^3.0.0"
+    },
+    "require-dev": {
+        "webmozart/assert": "^1.10.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Example\\Monorepo1\\SubPackage1\\": "src/"
+        }
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "name": "example/monorepo1",
+    "require": {
+        "symfony/console": "^5.3"
+    },
+    "require-dev": {
+        "phpunit/php-file-iterator": "3.0.5",
+        "phpunit/phpunit": "^9.5"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Example\\Monorepo1\\NS\\SubPackage2\\": "/"
+        }
+    }
+}
