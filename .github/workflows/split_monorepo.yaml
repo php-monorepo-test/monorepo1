@@ -42,13 +42,13 @@ jobs:
                     package_directory: 'src/${{ matrix.package.local_path }}'
 
                     # ↓ into https://github.com/symplify/easy-coding-standard repository
-                    repository_organization: $ORGANISATION
+                    repository_organization: php-monorepo-test
                     repository_name: '${{ matrix.package.split_repository }}'
 
 
                     # ↓ the user signed under the split commit
-                    user_name: $USER_NAME
-                    user_email: $USER_EMAIL
+                    user_name: tidal
+                    user_email: timomichna@yahoo.de
 
                 env:
                     USER_NAME: ${{ secrets.USER_NAME }}
@@ -67,7 +67,7 @@ jobs:
                     package_directory: 'src/${{ matrix.package.local_path }}'
 
                     # ↓ into https://github.com/symplify/easy-coding-standard repository
-                    repository_organization: $ORGANISATION
+                    repository_organization: php-monorepo-test
                     repository_name: '${{ matrix.package.split_repository }}'
 
                     # ↓ the user signed under the split commit
@@ -76,6 +76,6 @@ jobs:
 
 
                 env:
-                    USER_NAME: ${{ secrets.USER_NAME }}
-                    USER_EMAIL: ${{ secrets.USER_EMAIL }}
+                    USER_NAME: tidal
+                    USER_EMAIL: timomichna@yahoo.de
                     ORGANISATION: php-monorepo-test
