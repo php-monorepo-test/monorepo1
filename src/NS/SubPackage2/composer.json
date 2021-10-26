@@ -1,5 +1,5 @@
 {
-    "name": "example/monorepo1",
+    "name": "example/package2",
     "require": {
         "symfony/console": "^5.3"
     },

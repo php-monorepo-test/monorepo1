@@ -1,5 +1,5 @@
 {
-    "name": "example/monorepo1",
+    "name": "example/package1",
     "require": {
         "psr/log": "^3.0.0"
     },
@@ -9,7 +9,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Example\\Monorepo1\\SubPackage1\\": "src/"
+            "Example\\Monorepo1\\SubPackage1\\": "/"
         }
     }
 }

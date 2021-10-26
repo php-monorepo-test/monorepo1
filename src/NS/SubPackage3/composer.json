@@ -1,5 +1,5 @@
 {
-    "name": "example/monorepo1",
+    "name": "example/package3",
     "require": {
         "psr/container": "^2.0.1"
     },
@@ -9,7 +9,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Example\\Monorepo1\\NS\\SubPackage3\\": "src/"
+            "Example\\Monorepo1\\NS\\SubPackage3\\": "/"
         }
     }
 }
