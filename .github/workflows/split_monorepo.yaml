@@ -1,0 +1,72 @@
+name: 'Packages Split'
+
+on:
+    push:
+        branches:
+            - main
+        tags:
+            - '*'
+
+env:
+    # 1. for Github split
+    GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+    USER_NAME: ${{ secrets.USER_NAME }}
+    USER_EMAIL: ${{ secrets.USER_EMAIL }}
+    ORGANISATION: php-monorepo-test
+
+jobs:
+    packages_split:
+        runs-on: ubuntu-latest
+
+        strategy:
+            fail-fast: false
+            matrix:
+                # define package to repository map
+                package:
+                    -
+                        local_path: 'SubPackage1'
+                        split_repository: 'package1'
+                    -
+                        local_path: 'NS/SubPackage2'
+                        split_repository: 'package2'
+                    -
+                        local_path: 'NS/SubPackage3'
+                        split_repository: 'package3'
+
+        steps:
+            -   uses: actions/checkout@v2
+
+            # no tag
+            -
+                if: "!startsWith(github.ref, 'refs/tags/')"
+                uses: "symplify/monorepo-split-github-action@2.1"
+                with:
+                    # ↓ split "packages/easy-coding-standard" directory
+                    package_directory: 'src/${{ matrix.package.local_path }}'
+
+                    # ↓ into https://github.com/symplify/easy-coding-standard repository
+                    repository_organization: $ORGANISATION
+                    repository_name: '${{ matrix.package.split_repository }}'
+
+
+                    # ↓ the user signed under the split commit
+                    user_name: $USER_NAME
+                    user_email: $USER_EMAIL
+
+            # with tag
+            -
+                if: "startsWith(github.ref, 'refs/tags/')"
+                uses: "symplify/monorepo-split-github-action@2.1"
+                with:
+                    tag: ${GITHUB_REF#refs/tags/}
+
+                    # ↓ split "packages/easy-coding-standard" directory
+                    package_directory: 'src/${{ matrix.package.local_path }}'
+
+                    # ↓ into https://github.com/symplify/easy-coding-standard repository
+                    repository_organization: $ORGANISATION
+                    repository_name: '${{ matrix.package.split_repository }}'
+
+                    # ↓ the user signed under the split commit
+                    user_name: $USER_NAME
+                    user_email: $USER_EMAIL
