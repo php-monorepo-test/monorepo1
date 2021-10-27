@@ -7,16 +7,18 @@ on:
         tags:
             - '*'
 
-env:
-    # 1. for Github split
-    GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-    USER_NAME: tidal
-    USER_EMAIL: timomichna@yahoo.de
-    ORGANIZATION: php-monorepo-test
 
 jobs:
     packages_split:
         runs-on: ubuntu-latest
+
+        
+        env:
+            # 1. for Github split
+            GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+            USER_NAME: tidal
+            USER_EMAIL: timomichna@yahoo.de
+            ORGANIZATION: php-monorepo-test
 
         strategy:
             fail-fast: false
